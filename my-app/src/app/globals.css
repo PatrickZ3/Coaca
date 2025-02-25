@@ -5,11 +5,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --radius: 1rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #2B286D;
     --foreground: #ededed;
   }
 }
@@ -18,4 +22,5 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  margin: var(--spacing-md);
 }
