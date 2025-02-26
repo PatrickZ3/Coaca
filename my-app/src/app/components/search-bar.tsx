@@ -24,8 +24,8 @@ export default function SearchBar({ onSearch }: SearchProps) {
     };
 
     return (
-        <div className="flex mt-8">
-            <div className="relative w-full text-gray-600">
+        <div className="flex mt-8 p-0">
+            <div className="relative w-full text-gray-600 p-0">
                 <input
                     type={'search'}
                     name={'search'}
