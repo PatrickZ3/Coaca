@@ -5,10 +5,10 @@ type weatherProps = {
     realFeel: number;
     chanceOfRain: number;
     wind: number;
-    uvIndex: number;
+    skyCondition: string;
 }
 
-export default function WeatherInfo({ realFeel, chanceOfRain, wind, uvIndex }: weatherProps) {
+export default function WeatherInfo({ realFeel, chanceOfRain, wind, skyCondition }: weatherProps) {
     return (
         <div className="container">
             <div className="leftContainer">
@@ -46,8 +46,8 @@ export default function WeatherInfo({ realFeel, chanceOfRain, wind, uvIndex }: w
                         <img src='/sun.svg' alt="Weather" className="infoSymbol" />
                     </div>
                     <div className="right">
-                        <div className="info">UV Index</div>
-                        <div className="content"> {uvIndex}</div>
+                        <div className="info">Sky Condition</div>
+                        <div className="content"> {skyCondition}</div>
                     </div>
                 </div>
             </div>
