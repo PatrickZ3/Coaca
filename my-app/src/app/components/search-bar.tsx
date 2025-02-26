@@ -25,13 +25,13 @@ export default function SearchBar({ onSearch }: SearchProps) {
 
     return (
         <div className="flex mt-8">
-            <div className="relative w-3/4 text-gray-600">
+            <div className="relative w-1/2 text-gray-600">
                 <input
                     type={'search'}
                     name={'search'}
                     value={value}
                     placeholder="Search..."
-                    className="bg-[#6055a1] h-10 px-5 pr-10 w-full rounded-full text-sm text-[#f5ecff] focus:outline-none"
+                    className="bg-[#6055a1] h-10 px-5 pr-10 w-full rounded-lg text-sm text-[#f5ecff] focus:outline-none"
                     onChange={searchHandler}
                     onKeyDown={handleKeyDown}
                 />

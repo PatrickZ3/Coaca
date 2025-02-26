@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,9 +20,67 @@
   }
 }
 
+* {
+  font-family: "Roboto", serif;
+  padding: 0.5vw 2vw 0.5vw 2vw;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   margin: var(--spacing-md);
+}
+
+
+.heading {
+  font-weight: 900;
+  /* <weight>: Use a value from 100 to 900 */
+  font-style: normal;
+  font-size: 3vw;
+  padding-top: 0vw;
+  padding-bottom: 0vw;
+}
+
+.subheading {
+  font-weight: 400;
+  /* <weight>: Use a value from 100 to 900 */
+  font-style: normal;
+  font-size: 0.8vw;
+  padding-top: 0vw;
+  padding-bottom: 0vw;
+}
+
+.temperature {
+  font-weight: 900;
+  /* <weight>: Use a value from 100 to 900 */
+  font-style: normal;
+  font-size: 5vw;
+  padding-top: 0vw;
+  padding-bottom: 0vw;
+}
+
+.weatherSymbol {
+  height: 20vw;
+  width: auto;
+  filter: invert(1) brightness(2);
+  padding: 0vw;
+}
+
+.weatherContainer {
+  display: flex;
+  align-items: center;
+  padding: 0vw 2vw 0vw 2vw;
+  margin-top: -4vw;
+  
+}
+
+.leftWeatherInfo{
+  padding: 0vw;
+}
+
+.rightWeatherInfo {
+  display: flex;
+  align-items: center;
+  padding: 0vw 0vw 0vw 5vw;
 }

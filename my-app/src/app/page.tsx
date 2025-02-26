@@ -11,10 +11,14 @@ export default function Home() {
     console.log("Parent received:", value);
   };
 
+  const [city, setCity] = useState('Toronto');
+  const [chanceOfRain, setChanceOfRain] = useState(0);
+  const [temperature, setTemperature] = useState(31);
+
   return (
-    <div  >
+    <div>
       <SearchBar onSearch={handleSearch} />
-      <Weather/>
+      <Weather city={city} chanceOfRain={chanceOfRain} temperature={temperature}/>
     </div>
   );
 }
