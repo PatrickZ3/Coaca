@@ -84,3 +84,83 @@ body {
   align-items: center;
   padding: 0vw 0vw 0vw 5vw;
 }
+
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0vw 2vw 0vw 2vw;
+  margin-top: -4vw;
+  background: #6055a1;
+  border-radius: 1vw;
+  width: 100%;
+}
+
+.leftContainer{
+  display: flex;
+  flex-direction: column;
+  padding: 0vw 0vw 0vw 0vw;
+}
+
+.rightContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0vw 0vw 0vw 0vw;
+}
+
+.info{
+  font-weight: 500;
+  /* <weight>: Use a value from 100 to 900 */
+  font-style: normal;
+  font-size: 0.8vw;
+  padding-top: 0vw;
+  padding-bottom: 0vw;
+  padding-left: 0;
+}
+
+.content{
+  font-weight: 900;
+  /* <weight>: Use a value from 100 to 900 */
+  font-style: normal;
+  font-size: 2vw;
+  padding-top: 0vw;
+  padding-bottom: 0vw;
+  padding-left: 0;
+  margin-top: -0.5vw;
+}
+
+.infoSymbol{
+  height: 3vw;
+  width: auto;
+  filter: invert(1) brightness(2);
+  padding: 0vw;
+  margin-bottom: 0.2vw;
+}
+
+.infoContainer{
+  display: flex;
+  align-items: center;
+  gap: 0vw;
+}
+
+.innerContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  padding: 0;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 0;
+}
+
