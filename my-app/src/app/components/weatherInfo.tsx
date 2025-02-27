@@ -1,5 +1,6 @@
 "use client";
 import React from 'react'
+import Image from 'next/image';
 
 type weatherProps = {
     realFeel: number;
@@ -15,7 +16,7 @@ export default function WeatherInfo({ realFeel, chanceOfRain, wind, skyCondition
             <div className="leftContainer">
                 <div className="innerContainer">
                     <div className="left">
-                        <img src='/temp.svg' alt="Weather" className="infoSymbol" />
+                    <Image src='/temp.svg' alt="Weather" className="infoSymbol"/>
                     </div>
                     <div className="right">
                         <div className="info">Real Feel</div>
@@ -24,7 +25,7 @@ export default function WeatherInfo({ realFeel, chanceOfRain, wind, skyCondition
                 </div>
                 <div className="innerContainer">
                     <div className="left">
-                        <img src='/droplet.svg' alt="Weather" className="infoSymbol" />
+                        <Image src='/droplet.svg' alt="Weather" className="infoSymbol" />
                     </div>
                     <div className="right">
                         <div className="info">Chance of rain</div>
@@ -35,7 +36,7 @@ export default function WeatherInfo({ realFeel, chanceOfRain, wind, skyCondition
             <div className="rightContainer">
                 <div className="innerContainer">
                     <div className="left">
-                        <img src='/wind.svg' alt="Weather" className="infoSymbol" />
+                        <Image src='/wind.svg' alt="Weather" className="infoSymbol" />
                     </div>
                     <div className="right">
                         <div className="info">Wind</div>
@@ -44,7 +45,7 @@ export default function WeatherInfo({ realFeel, chanceOfRain, wind, skyCondition
                 </div>
                 <div className="innerContainer">
                     <div className="left">
-                        <img src='/sun.svg' alt="Weather" className="infoSymbol" />
+                        <Image src='/sun.svg' alt="Weather" className="infoSymbol" />
                     </div>
                     <div className="right">
                         <div className="info">Sky Condition</div>

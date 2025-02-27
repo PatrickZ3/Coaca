@@ -9,6 +9,7 @@ import rain from '../../../public/rain.svg';
 import thunderStorm from '../../../public/thunderStorm.svg';
 import snow from '../../../public/snow.svg';
 import mist from '../../../public/mist.svg';
+import type { StaticImageData } from 'next/image';
 
 type WeatherIcon = 
     "01d" | "01n" | "02d" | "02n" | 
@@ -22,7 +23,7 @@ type weatherProps = {
     icon: WeatherIcon;
 }
 
-const allIcons: Record<WeatherIcon, any> = {
+const allIcons: Record<WeatherIcon, StaticImageData> = {
     "01d": clearDay,
     "01n": clearNight,
     "02d": cloudyDay,

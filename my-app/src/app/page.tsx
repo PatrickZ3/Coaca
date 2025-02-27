@@ -7,9 +7,7 @@ import WeatherInfo from './components/weatherInfo';
 
 export default function Home() {
 
-  const [searchQuery, setSearchQuery] = useState('');
   const handleSearch = (value: string) => {
-    setSearchQuery(value);
     console.log("Parent received:", value);
     search(value);
   };
@@ -20,9 +18,21 @@ export default function Home() {
   const [realFeel, setRealFeel] = useState<number>(0);
   const [wind, setWind] = useState<number>(0);
   const [skyCondition, setskyCondition] = useState('');
-  const [icon, setIcon] = useState("01d");
+  const [icon, setIcon] = useState<WeatherIcon>("01d");
 
-  const allIcons = {
+  type WeatherIcon = 
+  | "01d" | "01n" 
+  | "02d" | "02n" 
+  | "03d" | "03n" 
+  | "04d" | "04n" 
+  | "09d" | "09n" 
+  | "10d" | "10n" 
+  | "11d" | "11n" 
+  | "13d" | "13n" 
+  | "50d" | "50n";
+
+
+  const allIcons: Record<WeatherIcon, string>= {
     "01d": 'Clear Sky',
     "01n": 'Clear Sky',
     "02d": 'Few Clouds',
@@ -70,7 +80,7 @@ export default function Home() {
       setRealFeel(Math.round(data.main.feels_like));
       setWind(data.wind.speed);
       setChanceOfRain(rain);
-      setskyCondition(allIcons[data.weather[0].icon]);
+      setskyCondition(allIcons[data.weather[0].icon as WeatherIcon]);
       setIcon(data.weather[0].icon);
     } catch (error) {
       console.error('Error:', error);
@@ -79,7 +89,7 @@ export default function Home() {
 
   useEffect(() => {
     search(city);
-  }, []);
+  }, [city, search]);
 
   return (
     <div className="flex flex-col w-1/2 mx-auto">
