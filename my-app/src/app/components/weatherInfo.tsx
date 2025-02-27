@@ -16,7 +16,7 @@ export default function WeatherInfo({ realFeel, chanceOfRain, wind, skyCondition
             <div className="leftContainer">
                 <div className="innerContainer">
                     <div className="left">
-                    <Image src='/temp.svg' alt="Weather" className="infoSymbol"/>
+                    <Image src='/temp.svg' alt="Weather" className="infoSymbol" width={40} height={40}/>
                     </div>
                     <div className="right">
                         <div className="info">Real Feel</div>
@@ -25,7 +25,7 @@ export default function WeatherInfo({ realFeel, chanceOfRain, wind, skyCondition
                 </div>
                 <div className="innerContainer">
                     <div className="left">
-                        <Image src='/droplet.svg' alt="Weather" className="infoSymbol" />
+                        <Image src='/droplet.svg' alt="Weather" className="infoSymbol" width={40} height={40}/>
                     </div>
                     <div className="right">
                         <div className="info">Chance of rain</div>
@@ -36,7 +36,7 @@ export default function WeatherInfo({ realFeel, chanceOfRain, wind, skyCondition
             <div className="rightContainer">
                 <div className="innerContainer">
                     <div className="left">
-                        <Image src='/wind.svg' alt="Weather" className="infoSymbol" />
+                        <Image src='/wind.svg' alt="Weather" className="infoSymbol" width={40} height={40}/>
                     </div>
                     <div className="right">
                         <div className="info">Wind</div>
@@ -45,7 +45,7 @@ export default function WeatherInfo({ realFeel, chanceOfRain, wind, skyCondition
                 </div>
                 <div className="innerContainer">
                     <div className="left">
-                        <Image src='/sun.svg' alt="Weather" className="infoSymbol" />
+                        <Image src='/sun.svg' alt="Weather" className="infoSymbol" width={40} height={40}/>
                     </div>
                     <div className="right">
                         <div className="info">Sky Condition</div>
