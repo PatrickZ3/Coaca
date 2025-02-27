@@ -8,16 +8,16 @@ import cloudyNight from '../../../public/cloudy.svg';
 import rain from '../../../public/rain.svg';
 import thunderStorm from '../../../public/thunderStorm.svg';
 import snow from '../../../public/snow.svg';
+import mist from '../../../public/mist.svg';
 
 type WeatherIcon = 
     "01d" | "01n" | "02d" | "02n" | 
     "03d" | "03n" | "04d" | "04n" | 
     "09d" | "09n" | "10d" | "10n" | 
-    "11d" | "11n" | "13d" | "13n";
+    "11d" | "11n" | "13d" | "13n" | "50d" | "50n";
 
 type weatherProps = {
     city: string;
-    chanceOfRain: number;
     temperature: number;
     icon: WeatherIcon;
 }
@@ -39,15 +39,16 @@ const allIcons: Record<WeatherIcon, any> = {
     "11n": thunderStorm, 
     "13d": snow,
     "13n": snow,
+    "50d": mist,
+    "50n": mist,
   };
 
-export default function Weather({ city, chanceOfRain, temperature, icon }: weatherProps) {
+export default function Weather({ city,  temperature, icon }: weatherProps) {
     const weatherIcon = allIcons[icon] || clearDay;
     return (
         <div className="weatherContainer">
             <div className="leftWeatherInfo">
                 <div className="heading">{city}</div>
-                <div className="subheading"> Chance of rain: {chanceOfRain}% </div>
                 <div className="temperature"> {temperature}°</div>
             </div>
             <div className="rightWeatherInfo">

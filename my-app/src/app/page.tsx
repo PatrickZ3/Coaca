@@ -11,15 +11,16 @@ export default function Home() {
   const handleSearch = (value: string) => {
     setSearchQuery(value);
     console.log("Parent received:", value);
+    search(value);
   };
 
   const [city, setCity] = useState('Toronto');
-  const [chanceOfRain, setChanceOfRain] = useState<number | null>(null);
-  const [temperature, setTemperature] = useState<number | null>(null);
-  const [realFeel, setrealFeel] = useState<number | null>(null);
-  const [wind, setwind] = useState<number | null>(null);
+  const [chanceOfRain, setChanceOfRain] = useState<number>(0);
+  const [temperature, setTemperature] = useState<number>(0);
+  const [realFeel, setRealFeel] = useState<number>(0);
+  const [wind, setWind] = useState<number>(0);
   const [skyCondition, setskyCondition] = useState('');
-  const [icon, setIcon] = useState('');
+  const [icon, setIcon] = useState("01d");
 
   const allIcons = {
     "01d": 'Clear Sky',
@@ -35,9 +36,11 @@ export default function Home() {
     "10d": 'Rain',
     "10n": 'Rain',
     "11d": 'Thunder Storm',
-    "11n": 'Thunder Storm', 
+    "11n": 'Thunder Storm',
     "13d": 'Snowy',
     "13n": 'Snowy',
+    "50d": 'Mist',
+    "50n": 'Mist',
   };
 
   const search = async (city: string) => {
@@ -46,6 +49,12 @@ export default function Home() {
 
       const response = await fetch(url);
       const data = await response.json();
+
+      if (data.cod === "404"){
+        alert("City not found. Please Enter a valid city name!");
+        return;
+      };
+
       const lat = data.coord.lat;
       const lon = data.coord.lon;
 
@@ -55,11 +64,11 @@ export default function Home() {
 
       const nextForecast = data2.list[0];
       const rain = nextForecast.pop ? Math.round(nextForecast.pop * 100) : 0;
-
+  
       setTemperature(Math.round(data.main.temp));
       setCity(data.name);
-      setrealFeel(Math.round(data.main.feels_like));
-      setwind(data.wind.speed);
+      setRealFeel(Math.round(data.main.feels_like));
+      setWind(data.wind.speed);
       setChanceOfRain(rain);
       setskyCondition(allIcons[data.weather[0].icon]);
       setIcon(data.weather[0].icon);
@@ -76,7 +85,7 @@ export default function Home() {
     <div className="flex flex-col w-1/2 mx-auto">
       <div>
         <SearchBar onSearch={handleSearch} />
-        <Weather city={city} chanceOfRain={chanceOfRain} temperature={temperature} icon={icon} />
+        <Weather city={city} temperature={temperature} icon={icon} />
         <WeatherInfo chanceOfRain={chanceOfRain} realFeel={realFeel} wind={wind} skyCondition={skyCondition} />
       </div>
 

@@ -10,6 +10,7 @@ type weatherProps = {
 
 export default function WeatherInfo({ realFeel, chanceOfRain, wind, skyCondition }: weatherProps) {
     return (
+        
         <div className="container">
             <div className="leftContainer">
                 <div className="innerContainer">

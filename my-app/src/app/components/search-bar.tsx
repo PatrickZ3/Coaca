@@ -13,7 +13,6 @@ export default function SearchBar({ onSearch }: SearchProps) {
     const searchHandler = (event: ChangeEvent<HTMLInputElement>) => {
         const { target } = event;
         setValue(target.value)
-        console.log(value)
 
     }
 
@@ -41,7 +40,7 @@ export default function SearchBar({ onSearch }: SearchProps) {
                     type="search"
                     name="search"
                     value={value}
-                    placeholder="Search..."
+                    placeholder="Enter City Name..."
                     className="bg-[#6055a1] h-10 px-5 pr-10 w-full rounded-lg text-sm text-[#f5ecff] focus:outline-none cursor-text"
                     onChange={searchHandler}
                     onKeyDown={handleKeyDown}
