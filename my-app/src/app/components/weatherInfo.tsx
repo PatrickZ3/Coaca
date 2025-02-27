@@ -38,7 +38,7 @@ export default function WeatherInfo({ realFeel, chanceOfRain, wind, skyCondition
                     </div>
                     <div className="right">
                         <div className="info">Wind</div>
-                        <div className="content"> {wind} km/h</div>
+                        <div className="content" style={{ whiteSpace: 'nowrap' }}> {wind} km/h</div>
                     </div>
                 </div>
                 <div className="innerContainer">

@@ -21,6 +21,25 @@ export default function Home() {
   const [skyCondition, setskyCondition] = useState('');
   const [icon, setIcon] = useState('');
 
+  const allIcons = {
+    "01d": 'Clear Sky',
+    "01n": 'Clear Sky',
+    "02d": 'Few Clouds',
+    "02n": 'Few Clouds',
+    "03d": 'Scattered Clouds',
+    "03n": 'Scattered Clouds',
+    "04d": 'Broken Clouds',
+    "04n": 'Broken Clouds',
+    "09d": 'Shower Rain',
+    "09n": 'Shower Rain',
+    "10d": 'Rain',
+    "10n": 'Rain',
+    "11d": 'Thunder Storm',
+    "11n": 'Thunder Storm', 
+    "13d": 'Snowy',
+    "13n": 'Snowy',
+  };
+
   const search = async (city: string) => {
     try {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_APP_ID}`;
@@ -34,35 +53,6 @@ export default function Home() {
       const response2 = await fetch(url2);
       const data2 = await response2.json();
 
-      let skyCondition = "Unknown";
-      data2.list.forEach((item: { dt: number; weather: { main: string; description: string }[] }) => {
-        const time = new Date(item.dt * 1000).getHours();
-        if (time >= 12 && time <= 15) { // Peak daylight hours
-          const condition = item.weather[0].main;
-          if (condition === 'Clear') {
-            skyCondition = "Clear Sky";
-          } else if (condition === 'Clouds') {
-            const description = item.weather[0].description;
-            if (description.includes('few clouds')) {
-              skyCondition = "Few Clouds";
-            } else {
-              skyCondition = "Cloudy";
-            }
-          } else if (condition === 'Rain' || condition === 'Drizzle') {
-            skyCondition = "Rainy";
-          } else if (condition === 'Snow') {
-            skyCondition = "Snowy";
-          } else {
-            skyCondition = "Cloudy";
-          }
-        }
-      });
-
-
-
-      console.log(data);
-      console.log(data2);
-
       const nextForecast = data2.list[0];
       const rain = nextForecast.pop ? Math.round(nextForecast.pop * 100) : 0;
 
@@ -71,7 +61,7 @@ export default function Home() {
       setrealFeel(Math.round(data.main.feels_like));
       setwind(data.wind.speed);
       setChanceOfRain(rain);
-      setskyCondition(skyCondition);
+      setskyCondition(allIcons[data.weather[0].icon]);
       setIcon(data.weather[0].icon);
     } catch (error) {
       console.error('Error:', error);

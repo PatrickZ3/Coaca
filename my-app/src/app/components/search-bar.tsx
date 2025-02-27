@@ -24,15 +24,25 @@ export default function SearchBar({ onSearch }: SearchProps) {
         }
     };
 
+    const handleClick = () => {
+        const inputElement = document.querySelector<HTMLInputElement>('input[name="search"]');
+        if (inputElement) {
+            inputElement.focus();
+        }
+    };
+
     return (
-        <div className="flex mt-8 p-0">
-            <div className="relative w-full text-gray-600 p-0">
+        <div className="flex mt-8 p-0 z-50">
+            <div 
+            className="relative w-full text-gray-600 p-0"
+            onClick={handleClick}
+            >
                 <input
-                    type={'search'}
-                    name={'search'}
+                    type="search"
+                    name="search"
                     value={value}
                     placeholder="Search..."
-                    className="bg-[#6055a1] h-10 px-5 pr-10 w-full rounded-lg text-sm text-[#f5ecff] focus:outline-none"
+                    className="bg-[#6055a1] h-10 px-5 pr-10 w-full rounded-lg text-sm text-[#f5ecff] focus:outline-none cursor-text"
                     onChange={searchHandler}
                     onKeyDown={handleKeyDown}
                 />

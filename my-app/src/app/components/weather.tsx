@@ -9,14 +9,20 @@ import rain from '../../../public/rain.svg';
 import thunderStorm from '../../../public/thunderStorm.svg';
 import snow from '../../../public/snow.svg';
 
+type WeatherIcon = 
+    "01d" | "01n" | "02d" | "02n" | 
+    "03d" | "03n" | "04d" | "04n" | 
+    "09d" | "09n" | "10d" | "10n" | 
+    "11d" | "11n" | "13d" | "13n";
+
 type weatherProps = {
     city: string;
     chanceOfRain: number;
     temperature: number;
-    icon: string;
+    icon: WeatherIcon;
 }
 
-const allIcons = {
+const allIcons: Record<WeatherIcon, any> = {
     "01d": clearDay,
     "01n": clearNight,
     "02d": cloudyDay,
